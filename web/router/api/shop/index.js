@@ -1,5 +1,5 @@
 var router = require('express').Router();
 
-router.use('/register', require('./register'));
+router.use('/shop', require('./shop'));
 
 module.exports = router;

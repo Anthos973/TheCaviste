@@ -8,15 +8,18 @@ router.get('/', function(req, res) {
     });
 });
 
+   
 router.post('/', function(req, res) {
     var username = req.body.username;
     var email = req.body.email;
     var password = req.body.password;
+    var admin = req.body.admin
 
     var newUser = new User({
         username: username,
         email: email,
-        password: hash.hashPassword(password)
+        password: hash.hashPassword(password),
+        admin: admin,
     }).save().then(function(userSaved) {
         res.json(userSaved);
     });
@@ -24,3 +27,4 @@ router.post('/', function(req, res) {
 });
 
 module.exports = router;
+
